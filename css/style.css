@@ -1,15 +1,30 @@
 body {
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
-  background: #fafbfc;
-  color: #212121;
+  background: #fff;
+  min-height: 100vh;
+  color: #23223a;
 }
 
+#bg-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  /* opacityはもう指定しない or 1に！ */
+}
+
+
 header {
-  background: #1e293b;
-  color: #fff;
+  background: rgba(255,255,255,0.95);
+  color: #E174FF;
   padding: 2rem 0 1rem 0;
   text-align: center;
+  box-shadow: 0 2px 16px 0 rgba(225, 116, 255, 0.08);
+  position: relative;
 }
 
 header .container {
@@ -23,13 +38,14 @@ header .container {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  border: 2px solid #94a3b8;
+  border: 2px solid #E174FF;
   object-fit: cover;
+  background: #fff;
 }
 
 .subtitle {
   font-size: 1.2rem;
-  color: #60a5fa;
+  color: #F87E6E;
 }
 
 nav ul {
@@ -42,25 +58,40 @@ nav ul {
 }
 
 nav a {
+  background: linear-gradient(90deg, #E174FF 60%, #F87E6E 100%);
   color: #fff;
-  text-decoration: none;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.3em 1.1em;
   border-radius: 999px;
-  transition: background 0.2s;
+  transition: opacity 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(225, 116, 255, 0.09);
+  text-decoration: none;
+  border: none;
+  font-size: 1.07rem;
+  letter-spacing: 0.02em;
 }
 
 nav a:hover {
-  background: #2563eb;
+  opacity: 0.84;
+  box-shadow: 0 4px 18px rgba(248, 126, 110, 0.17);
+  filter: brightness(1.08);
 }
 
 .section {
   max-width: 800px;
   margin: 3rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px #0001;
+  padding: 2.3rem 2rem;
+  background: rgba(255,255,255,0.96);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(225, 116, 255, 0.08), 0 1.5px 16px 0 rgba(248,126,110,0.06);
+  backdrop-filter: blur(1.7px);
+}
+
+h1, h2 {
+  background: linear-gradient(90deg, #E174FF 30%, #F87E6E 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .skills-list {
@@ -82,6 +113,10 @@ nav a:hover {
   width: 48px;
   height: 48px;
   margin-bottom: 0.5rem;
+  border-radius: 12px;
+  border: 2px solid #E174FF22;
+  background: #fff8;
+  box-shadow: 0 1.5px 8px rgba(225,116,255,0.07);
 }
 
 .projects-list {
@@ -94,19 +129,27 @@ nav a:hover {
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
-  background: #f1f5f9;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 1px 4px #0001;
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.3rem 1.1rem;
+  box-shadow: 0 1px 8px #E174FF11;
+  border-left: 5px solid #E174FF77;
+  border-bottom: 2px solid #F87E6E44;
+  transition: box-shadow 0.2s;
+}
+
+.project-card:hover {
+  box-shadow: 0 6px 24px #F87E6E33;
+  border-left: 5px solid #F87E6E;
 }
 
 .project-card img {
   width: 96px;
   height: 96px;
-  border-radius: 8px;
+  border-radius: 12px;
   object-fit: cover;
   background: #fff;
-  border: 1px solid #e2e8f0;
+  border: 2px solid #E174FF33;
 }
 
 .project-card h3 {
@@ -115,18 +158,38 @@ nav a:hover {
 }
 
 .project-card a {
-  color: #2563eb;
-  text-decoration: underline;
+  display: inline-block;
+  margin-top: 0.3em;
+  padding: 0.3em 1.2em;
+  background: linear-gradient(90deg, #F87E6E 10%, #E174FF 80%);
+  color: #fff;
+  border-radius: 999px;
   font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(225, 116, 255, 0.08);
+  font-size: 1.03em;
+  transition: opacity 0.2s, box-shadow 0.2s, filter 0.2s;
+  border: none;
+}
+.project-card a:hover {
+  opacity: 0.82;
+  filter: brightness(1.12);
+  box-shadow: 0 4px 16px rgba(248, 126, 110, 0.19);
 }
 
 footer {
-  background: #1e293b;
-  color: #fff;
+  background: rgba(255,255,255,0.97);
+  color: #E174FF;
   text-align: center;
   padding: 1rem 0;
   margin-top: 3rem;
-  font-size: 0.9rem;
+  font-size: 0.97rem;
+  border-top: 2px solid #E174FF22;
+  letter-spacing: 0.03em;
+}
+
+ul, li {
+  color: #23223a;
 }
 
 @media (max-width: 600px) {
